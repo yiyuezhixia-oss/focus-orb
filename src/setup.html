@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Focus Orb</title>
+<link rel="stylesheet" href="setup.css" />
+</head>
+<body>
+<div class="app">
+  <header class="titlebar">
+    <div class="brand">
+      <span class="logo"></span>
+      <span class="brand-name">Focus Orb</span>
+    </div>
+    <div class="win-controls">
+      <button class="wbtn" id="btn-min" title="最小化">
+        <svg viewBox="0 0 12 12" width="12" height="12"><path d="M2 6h8" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>
+      </button>
+      <button class="wbtn close" id="btn-close" title="关闭">
+        <svg viewBox="0 0 12 12" width="12" height="12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="content">
+    <h1 class="title">开始一段专注</h1>
+    <p class="subtitle">设定完成后，悬浮球会出现在桌面上，可自由拖动</p>
+
+    <section class="block">
+      <label class="label" for="f-title">事件</label>
+      <input id="f-title" class="input" type="text" maxlength="40" placeholder="例如：撰写项目方案" />
+    </section>
+
+    <section class="block">
+      <label class="label" for="f-note">备注 <span class="hint">可选 · 会显示在提醒框里</span></label>
+      <textarea id="f-note" class="input area" rows="2" maxlength="120" placeholder="例如：先完成第三章，中途不回消息"></textarea>
+    </section>
+
+    <section class="block">
+      <label class="label">专注时长</label>
+      <div class="chips" id="duration-chips"></div>
+      <div class="row">
+        <div class="stepper">
+          <button class="step" id="dur-minus" type="button">
+            <svg viewBox="0 0 12 12" width="12" height="12"><path d="M2.5 6h7" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+          </button>
+          <input id="f-duration" class="num" type="number" min="1" max="600" value="25" />
+          <button class="step" id="dur-plus" type="button">
+            <svg viewBox="0 0 12 12" width="12" height="12"><path d="M6 2.5v7M2.5 6h7" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <span class="unit">分钟</span>
+        <span class="spacer"></span>
+        <span class="total" id="total-preview">25 分钟</span>
+      </div>
+    </section>
+
+    <section class="block">
+      <label class="label">提醒</label>
+
+      <div class="rline">
+        <span class="rtext">每隔</span>
+        <input id="f-interval" class="num small" type="number" min="1" max="600" value="10" />
+        <span class="rtext">分钟提醒一次</span>
+        <button class="add" id="add-interval" type="button">添加</button>
+      </div>
+
+      <div class="rline">
+        <span class="rtext">倒数第</span>
+        <input id="f-countdown" class="num small" type="number" min="1" max="600" value="5" />
+        <span class="rtext">分钟提醒</span>
+        <button class="add" id="add-countdown" type="button">添加</button>
+      </div>
+
+      <div class="rlist" id="rlist"></div>
+      <div class="empty" id="rempty">暂无提醒 · 专注过程不被打断</div>
+      <div class="rpreview" id="rpreview"></div>
+      <p class="tip">到达提醒时刻，小球一侧会展开圆角小框，5 秒后自动收回</p>
+    </section>
+
+    <section class="block">
+      <label class="label">悬浮球大小</label>
+      <div class="chips" id="size-chips"></div>
+    </section>
+
+    <section class="block">
+      <label class="label">专注期间屏蔽的应用</label>
+      <button class="pick" id="btn-pick" type="button">
+        <svg viewBox="0 0 14 14" width="13" height="13">
+          <circle cx="6" cy="6" r="4.2" stroke="currentColor" stroke-width="1.2" fill="none"/>
+          <path d="M9.2 9.2L12.5 12.5" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+        扫描本机软件并选择
+      </button>
+      <div class="rlist" id="blist"></div>
+      <div class="empty" id="bempty">未屏蔽任何应用</div>
+      <p class="tip">开始后每 3 秒检测一次：先请求正常关闭，留 5 秒保存时间，仍未退出才强制结束。系统关键进程与本程序不会被关闭。</p>
+    </section>
+
+    <p class="tip">悬浮球操作：拖动移动 · 悬停后点击按钮暂停/继续 · 双击打开设置 · 右键更多</p>
+
+    <button class="start" id="btn-start" type="button">开始专注</button>
+  </main>
+</div>
+<script src="setup.js"></script>
+</body>
+</html>

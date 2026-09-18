@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>选择屏蔽应用</title>
+<link rel="stylesheet" href="apps.css" />
+</head>
+<body>
+<div class="app">
+  <header class="titlebar">
+    <div class="brand">
+      <span class="logo"></span>
+      <span class="brand-name">选择要屏蔽的应用</span>
+    </div>
+    <div class="win-controls">
+      <button class="wbtn close" id="btn-close" title="关闭">
+        <svg viewBox="0 0 12 12" width="12" height="12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="search">
+    <svg class="sicon" viewBox="0 0 14 14" width="13" height="13">
+      <circle cx="6" cy="6" r="4.2" stroke="currentColor" stroke-width="1.2" fill="none"/>
+      <path d="M9.2 9.2L12.5 12.5" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    </svg>
+    <input id="q" type="text" placeholder="搜索应用名称或路径" />
+  </div>
+
+  <div class="list" id="list">
+    <div class="state" id="state">正在扫描本机已安装软件…</div>
+  </div>
+
+  <footer class="foot">
+    <span class="count" id="count">已选 0 个</span>
+    <span class="spacer"></span>
+    <button class="btn ghost" id="btn-cancel" type="button">取消</button>
+    <button class="btn primary" id="btn-ok" type="button">确定</button>
+  </footer>
+</div>
+<script src="apps.js"></script>
+</body>
+</html>
